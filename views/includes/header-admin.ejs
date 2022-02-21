@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="shortcut icon" href="image/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/css/admin-add.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/admin-add.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/event-table.css">
+    <link rel="stylesheet" href="/css/user.css">
+    <link rel="stylesheet" href="/css/organizer_profile.css">
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" integrity="sha512-VCHVc5miKoln972iJPvkQrUYYq7XpxXzvqNfiul1H4aZDwGBGC0lq373KNleaB2LpnC2a/iNfE5zoRYmB4TRDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     
+</head>
+<body>
+    
+    <!-- admin navigations -->
+    <div class="admin-sidebar">
+
+        <div class="admin-profile">
+            <a id="profileImage" href=""><img onerror="this.style.display='none' " src="/image/engida.jpg" width="70" height="70" alt=""></a>
+            
+            <h4 class="name"></i><%= fullname %></h4>
+           
+        </div>
+        <ul id="sideContent" class="content">
+            <li><a href="/"></i>Dashbord</a></li>
+            <li class="dropdown-btn"> Events <i class="fa fa-caret-right"></i></li>
+            <ul class="dropdown-container">
+                <% if(role == "admin"){ %>
+
+                    <li><a href="/all-events">All Events</a></li>
+                    <li><a href="/active-events">Active Events</a></li>
+
+                <% }else{ %>
+
+                <li><a href="/all-organizer-events">All Events</a></li>
+                <li><a href="/active-events-organizer">Active Events</a></li>
+
+                <%}%>
+                <li><a href="/add-event">Add Events</a></li>
+            </ul>
+            <% if(role == "admin"){ %>
+
+                <li class="dropdown-btn"> Organizers <i class="fa fa-caret-right"></i></li>
+                <ul class="dropdown-container">
+                    <li><a href="/all-organizers">All Organizers</a></li>
+                    <li><a href="/register-organizer">Add Organizers</a></li>
+                </ul>
+
+            <% } %>
+            <li class="dropdown-btn"> Booking <i class="fa fa-caret-right"></i></li>
+            <ul class="dropdown-container">
+                <% if(role == "admin"){ %>
+
+                    <li><a href="/all-bookings">Booked</a></li>
+
+                <% }else{ %>
+
+                    <li><a href="/all-bookings">Booked</a></li>
+                    <!-- <li><a href="/active-events-organizer">Pending</a></li> -->
+
+                <%}%>
+                <!-- <li><a href="/add-event">Pending</a></li> -->
+            </ul>            
+           
+            <br>
+            <br>
+            <br>
+            <br>
+        </ul>
+    </div>
+
+    <div class="admin-navigation">
+        <div class="admin-menu-bar" id="menuBar"><i class="fas fa-bars"></i></div>
+        <form action="" class="admin-search-bar">
+            <input type="text" placeholder="Search" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="admin-left-nav">
+            <button class="notification"><i class="fa fa-bell"></i></button>
+            <button class="profile"><i class="fa fa-user-circle"></i></button>
+        </div>
+        <form action="/logout" method="post">
+            <button class="btn logout-btn">Logout</button>
+        </form>
+    </div>
+
+    <script>
+            
+        const extractFirstLetters = function(name) {
+            let firstName = name.split(' ')[0];
+            let lastName = name.split(' ')[1];
+                
+            let firstLetters = firstName[0] + lastName[0];
+            firstLetters = firstLetters.toUpperCase()
+            return firstLetters
+        }
+
+        let output = extractFirstLetters("<%= fullname %>")
+        
+        document.getElementById('profileImage').innerHTML = output;
+    </script>

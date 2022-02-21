@@ -1,0 +1,204 @@
+body{
+    font-family: Helvetica,Arial,FreeSans,sans-serif;
+}
+.btn{
+    margin: 25px;
+}
+.language_option{
+    padding: 1.2rem;
+}
+.language_option label{
+    margin: 0.5em;
+}
+.services_checkbox input[type="checkbox"], .language_option input[type="checkbox"]{
+    padding: 0;
+    margin: 0;
+    height: 1.5em;
+    width: 1.5em;
+}
+/* {
+    padding: 0;
+    margin: 0;
+    height: 1.5em;
+    width: 1.5em;
+} */
+
+.admin-body {
+    position: absolute;
+    top: 64px;
+    left: 250px;
+    z-index: -1;
+    /* text-align: center; */
+    background-color: #ffffff;
+    width: calc(100% - 250px);
+}
+.basic-information,
+.account-information {
+    padding: 30px;
+    margin: 50px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: solid 1px #b6b9c0;
+    box-shadow: 0em 0em 3em rgba(0, 0, 0, 0.137);
+}
+.event-form h3{
+    padding: 0 30px 30px;
+}
+.basic-info-form,
+.account-information {
+    display: flex;
+    flex-direction: column; 
+}
+.basic-info-form input,
+.account-information input {
+    margin: 20px;
+}
+.file-upload-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c9dadf;
+    padding: 40px;
+    border:dashed 2px #92b0b3;
+    cursor: pointer;
+}
+.file-upload-label i{
+    font-size: 50px;
+    color: #012b3a;
+}
+.upload-btn{
+    background-color: #39bfd3;
+    color: #012b3a;
+}
+.upload-btn:hover{
+    background-color: #012b3a;
+}
+.file-upload {
+    background-color: #c9dadf;
+    border-radius: 0;
+}
+
+.file-upload-label input[type="file"] {
+    /* display: none; */
+}
+.file-upload-label p{
+    padding: 15px;
+}
+.form-btn button{
+    margin-top: 20px;
+}
+.description textarea{
+    background-color: #cfe3eb;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+}
+.event-form .btn {
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    border-radius: 19px;
+}
+.submit-btn{
+    background-color: rgb(22, 161, 131);
+}
+.cancel-btn {
+    background-color: #515e7b;
+}
+.account-information {
+    margin: 50px;
+background-color: #fff;
+}
+.operatedIn{
+    padding: 10px;
+    background-color: #e4ebf1;
+    margin-bottom: 40px;
+}
+.event-hightlight-inputs input, .google-map input{
+    border-radius: 10px;
+    display: flex;
+    width: 70%;
+}
+@media screen and (max-width: 768px){
+    .event-hightlight-inputs input, .google-map input{
+        width: 90%;
+    }
+    
+    .admin-body {
+    
+        left: 0;
+    
+    }
+    .organizer_password_container{
+        flex-direction: column;
+     
+    }
+}
+/* ================================= */
+
+  
+  /* .custom-select select {
+    display: none; 
+  } */
+  
+  
+  
+  /*style the arrow inside the select element:*/
+  
+  
+  
+  /*point the arrow upwards when the select box is open (active):*/
+
+  
+  /*style the items (options), including the selected item:*/
+ 
+  
+  /*style items (options):*/
+  .custom-select{
+    /* position: absolute; */
+    background-color:  #cfe3eb;
+   padding: 10px;
+    
+    z-index: 99;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);
+  }
+
+  
+  /*hide the items when the select box is closed:*/
+ 
+  
+ .event-form input{
+     padding: 20px;
+ }
+
+ 
+/* register organizer */
+.organizer_password_container{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.password_generator{
+    display: flex;
+    gap: 1em;
+    /* margin-left: 2em; */
+}
+#passGenButton {
+    font-family: sans-serif;
+    font-size: 15px;
+    /* margin-top: 40px; */
+    border: none;
+    padding: 0.5em;
+    /* width: 155px; */
+    /* height: 2rem; */
+    text-align: center;
+    background-color: #065f9b;
+    display: flex;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;  
+  }

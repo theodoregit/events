@@ -1,0 +1,68 @@
+
+<%- include('includes/header-admin') %>
+
+
+<!-- *********************admin body start**************** -->
+<div class="admin-body">
+    
+    <!-- flash message here -->
+    <div class="basic-information">
+        <form action="/register-organizer" method="post" class="basic-info-form">
+            <div class="part-one-form">
+                <h3>Basic Information</h3>
+                <div>
+                    <input type="text" name="organizerName" placeholder="Organizers Name" required>
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="email" required>
+                </div>
+                <div>
+                    <input type="number" name="phoneNumber" placeholder="Phone Number" required>
+
+                </div>
+                <div class="organizer_password_container">
+                    <!-- <input type="password" name="password" placeholder="password" required> -->
+                    <input type="text" name="password" placeholder="Create password" id="password" readonly>
+                    <div class="password_generator">
+                        <div><a id="passGenButton" class="btn1"onclick="genPassword()">Generate</a></div>
+                        <div><a  id="passGenButton" class="btn2" onclick="copyPassword()">Copy</a></div>
+                    </div>
+                
+                </div>
+
+            </div>
+
+
+            <div class="form-btn">
+                <button type="submit" class="btn submit-btn">Submit</button>
+                <button type="reset" class="btn cancel-btn">cancel</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+ <!-- *********************admin body end**************** -->
+ <script>
+    var password=document.getElementById("password");
+
+    function genPassword() {
+    var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var passwordLength = 12;
+    var password = "";
+    for (var i = 0; i <= passwordLength; i++) {
+    var randomNumber = Math.floor(Math.random() * chars.length);
+    password += chars.substring(randomNumber, randomNumber +1);
+    }
+        document.getElementById("password").value = password;
+    }
+
+    function copyPassword() {
+    var copyText = document.getElementById("password");
+    copyText.select();
+    document.execCommand("copy");  
+    }
+ </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="/js/admin.js"></script>
+</body>
+</html>

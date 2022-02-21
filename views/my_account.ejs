@@ -1,0 +1,56 @@
+
+ <%- include('includes/header-user') %>
+
+    <div class="my_profile_container">
+        <div class="side_nav_settings">
+            <h1>My Acount</h1>
+            <ul>
+                <li><a href="/my-account" id="active">My details</a></li>
+                <li><a href="/my-booking">My booking</a></li>
+                <li><a href="">Account settings</a></li>
+            </ul>
+        </div>
+        <div class="my_account_info">
+            <div class="personal_info">
+                <form action="">
+                    <!-- <div class="profilr_picture">
+                        <a id="profileImage" href="/user-profile" class="user-profile">
+                            <img src="/image/" onerror="this.style.display='none' " width="65" height="65" alt="">
+                        </a>
+                        <a>change</a>
+                        <input type="file" name="image" id="image">          
+                    </div> -->
+         
+                    <label for="fullname">Full name</label>
+                    <input type="text"name="fullname" placeholder="Fullname" id="fullname" value="<%=user.FullName%>">
+                    <label for="birthDate">Birth date</label>
+                    <input type="text" name="birthDate" placeholder="Birth date" id="birthDate" >
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" name="phoneNumber" placeholder="Phone number" id="phoneNumber" value="<%=user.PhoneNumber%>">
+                    <button type="submit" class="btn save-btn">Save</button>
+                </form>
+            </div>
+
+            <div class="email_address">
+                <form action="">
+                    <input type="text"name="emial" placeholder="Email address" value="<%=user.Email%>">
+                    <input type="password" name="password" placeholder="password" value="<%=user.Password%>">
+                    <button type="submit" class="btn save-btn">Save</button>
+                </form>
+            </div>
+
+            <div class="password">
+                <form action="">
+                    <input type="password"name="currentPassword" placeholder="Current password">
+                    <input type="password" name="newPassword" placeholder="New password">
+                    <input type="password" name="confirmPassword" placeholder="Confirm password" id="">
+                    <button type="submit" class="btn save-btn">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<%- include('includes/footer') %>

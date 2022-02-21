@@ -1,0 +1,52 @@
+
+<%- include('includes/header-admin') %>
+
+
+<!-- *********************admin body start**************** -->
+<div class="admin-body">
+    <div class="student-form">
+        <!-- flash message here -->
+        <div class="basic-information">
+            <%- include('includes/flash') %>
+            <form action="/register-organizer-detail" method="post" class="basic-info-form" enctype="multipart/form-data" >
+                <div class="part-one-form">
+                    <h3>Detail Information </h3>
+                    <div>
+                        <input type="altNumber" name="organizerName" placeholder="" value="<%= organizerName %>" readonly>
+                    </div>
+                    <div>
+                        <input type="altNumber" name="altPhoneNumber" placeholder="Alternate Phone Number(optional)">
+                    </div>
+                    <div>
+                        <input type="file" name="thumbnail" placeholder="image" required >
+                    </div>
+                    <label for="address" class="description">
+                        <textarea type="address" name="address" id="address" rows="4" placeholder="Addrss" required></textarea>
+                    </label>
+                </div>
+                <div class="part-two-form">
+                    <h3>Person In Charge</h3>
+                    <div>
+                        <input type="text" name="PICName" placeholder="Person In Charge Full Name" >
+                        <input type="email" name="PICEmail" placeholder="email" >
+                    </div>
+                    <div>
+                        <input type="number" name="PICPhoneNumber" placeholder="Phone Number" >
+                    </div>
+                    
+                </div>
+
+                <div class="form-btn">
+                    <button type="submit" class="btn submit-btn">Submit</button>
+                    <button type="reset" class="btn cancel-btn">cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+ <!-- *********************admin body end**************** -->
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+ <%- include('includes/header-admin') %>
+
+
+ <div class="admin-body">
+<!-- flash here -->
+     <div class="all-event-container">
+         <div class="table-1">
+             <table >
+                 <thead>
+                     <tr>
+                         <th>S.No</th>
+                         <th>Profile</th>
+                         <th>Organizers Name</th>
+                         <th>Email Address</th>
+                         <th>Phone Number</th>
+                         <!-- <th>Address</th> -->
+                         <th>Action</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+               
+                     <%
+                        var count = 1 
+                        organizersList.forEach((organizer)=>{ 
+                        let allImages = organizer.image
+                        let imageArr = allImages;
+                        console.log(organizer.image)
+                    %>
+                         <tr>
+                            <td><%=count%></td>
+                            <td> <a href="/organizer-profile/<%= organizer.ID %>"><img src="/uploads/images/<%= imageArr %>"  width="40" height="40" alt="image"></a></td>
+                            <td><%=organizer.FullName%><a href=""></td>
+                            <td><%=organizer.Email%></td>
+                            <td><%=organizer.PhoneNumber%></td>
+                            <td class="action-btn">
+                                <a href="/organizer-profile/<%= organizer.ID %>" class="organizer_profile_btn">
+                                    <span class="text-gradient"><i class="fas fa-user-circle"></i></span>
+                                </a>
+                                <a href="/" class="  update-btn">
+                                    <span class="text-gradient"><i class="fas fa-edit"></i></span>
+                                </a>
+                                <a href="/" class=" delete-btn">
+                                    <span class="text-gradient"><i class="fas fa-trash-alt"></i></span>
+                                </a>
+                            </td>
+                         </tr>
+                     <% count++ }) %>
+ 
+                 </tbody>
+                
+             </table>
+         </div>
+     </div>
+ </div>
+ 
+ <script src="/js/admin.js"></script>
+</body>
+</html>
+
+

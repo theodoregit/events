@@ -1,0 +1,117 @@
+<%- include('includes/header-user') %>
+
+    <!-- Filter body -->
+    <div class="upcomingEvent_container">
+        
+        <div class="filter">
+            
+            <div>
+                <div class="filter-close-btn">
+                    <p><strong>X</strong></p>
+                </div>
+                <h3 id="title" class="title" style="margin-left:1em; margin-top: 0;"><strong>|</strong> Filters</h3>
+            </div>
+                <div class="form_item">
+                    <h3 class="item_heading" onclick = "dropdown(event)">Dates</h3>
+                    <div class="content">
+                        <div class="date_picker">
+                            <label for="from">From
+                                <input type="date" name="" id="from" placeholder="Starts after" class="date_from" id = "date1">
+
+                            </label>
+                           <label for="to">To
+                                <input type="date" name="" id="to" placeholder="Ends before" class="date_to">
+
+                           </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_item">
+                    <h3 class="item_heading" onclick = "dropdown(event)">Difficulty</h3>
+                    <div class="content">
+                        <div class = "input_container"><input type="checkbox" name="" id="easy_moderate">
+                        <label for="easy_moderate">Easy-moderate</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="moderate">
+                        <label for="moderate">Moderate</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="moderate_difficult">
+                        <label for="moderate_difficult">moderate-difficult</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="difficult">
+                        <label for="difficult">difficult</label></div>
+                    </div>
+                </div>
+
+                <div class="form_item">
+                    <h3 class="item_heading" onclick = "dropdown(event)">Regions</h3>
+                    <div class="content">
+                        <div class = "input_container"><input type="checkbox" name="" id="addis_ababa">
+                        <label for="addis_ababa">Addis Ababa</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="sidama">
+                        <label for="sidama">Sidama</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="oromia">
+                        <label for="oromia">Oromia</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="amhara">
+                        <label for="amhara">Amhara</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="">
+                        <label for="oromia">Tigrai</label></div>
+                    </div>
+                </div>
+
+                <div class="form_item">
+                    <h3 class="item_heading" onclick = "dropdown(event)">Price</h3>
+                    <div class="content">
+                        <div class = "input_container"><input type="checkbox" name="" id="1000"><label for="1000">1000 -5000</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="5000"><label for="5000">5000 -10000</label></div>
+                        <div class = "input_container"><input type="checkbox" name="" id="10000"><label for="10000">10000 -20000</label></div> 
+                    </div>
+                </div>
+
+                <div class="apply_btn_container">
+                    <a href="" type="submit" class="btn submit-btn apply_filter">Apply</a>
+                    <a href="#" type="reset" class="btn cancel-btn apply_filter">cancel</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="output">
+
+            <% upcomingEventList.forEach((event, i)=>{ 
+              
+                %>
+                
+                <div class="card">
+                    <div class="inside-card">
+                        <div class="sticker"><p><%= event.difficulty%> </p></i></div>
+                        <img class="carousel__image" src="/uploads/images/<%=event.thumbnail%>" alt="">
+                        <div class="card-detail">
+                            <h3 class="trek_name"><%= event.eventName%></h3>
+                            <p class="trek_promo">Organizer-<%= event.organizer%> </p>
+                            <div class="info">
+                                <p class="info-list"><i class="fas fa-drafting-compass"></i><%= event.distance%>Km</p>
+                                <p class="price"><i class="fas fa-money-bill-wave"></i>From <%= event.eventPrice%></p>
+                            </div>
+                            <div class="duration"> 
+                                <p class="info-list"><i class="fas fa-table"></i><%= event.startingDate%> <strong> - </strong> <%= event.lastDate%></p>
+                            </div>
+                            <a href="/event/<%= event.id %>" class="btn detail_button">view more</a>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            <% }) %>
+
+        </div>
+    </div> 
+
+    <button class="filter_bar">
+        <i class="fas fa-bars"></i>Filter
+    </button>
+
+    <!-- footer -->
+   
+
+    <script src="/js/script.js"></script>
+    <script src="/js/upcomingEvent.js"></script>
+</body>
+<%- include('includes/footer') %>
+</html>

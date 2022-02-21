@@ -1,0 +1,120 @@
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+}
+
+.footer{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ebebeb;
+    padding: 30px;
+}
+.footer h3::before{
+    content: "";
+    border: solid 4px #00ff84;
+    background-color: #00ff84;
+}
+.footer h3{
+    color: #002333;
+    background-color: #f1efef;
+}
+.footer ul li, .footer a{
+    font-size: 14px;
+}
+
+#contact ul{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    place-items: center;
+}
+#media_and_links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+#med ia_and_links i{
+    font-size:x-large;
+    padding: 7px;
+    color: #00ff84;
+}
+#social_media h3{
+    text-align: end;
+}
+#social_media ul, #contact ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    /* width:50%; */
+}
+/* #contact ul li{
+    padding: 10px;
+} */
+/* #contact h3, #social_media h3{
+    padding: 20px 0;
+} */
+.footer #links a{
+    padding: 10px;
+}
+.copyright{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #002333;
+    padding: 20px;
+    color: #ffffff;
+}
+#footer-links{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+#social_media_links li i{
+    color: var(--clr-link);
+    transform: scale(1.2); 
+}
+#social_media_links li i:hover{
+ color: #00ff84;
+
+}
+#footer-links a{
+    margin: 0.5em;
+}
+#footer-links a:hover{
+    color: #002333;
+}
+@media (max-width: 768px){
+    /* .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    } */
+    /* #social_media_links{
+        display: ;  
+    } */
+    #contact ul{
+        flex-direction: column;
+     }  
+    
+    #contact, #media_and_links{
+        /* margin: 0; */
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+    
+    #social_media h3, #contact h3{
+        text-align: center;
+    }
+    #footer-links{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    
+}
+

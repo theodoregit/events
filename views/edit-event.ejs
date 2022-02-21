@@ -1,0 +1,193 @@
+
+ <%- include('includes/header-admin') %>
+
+
+ <!-- *********************admin body start**************** -->
+ <div class="admin-body">
+     <div class="student-form">
+       
+        <!-- flash message here -->
+        <div class="basic-information">
+            <%- include('includes/flash') %>
+            <form action="/event/<%=eventData.id%>/edit" method="post" class="basic-info-form" enctype="multipart/form-data" >
+
+                <div>
+                    <a id="back-link" href="/profile/<%= eventData.id %>">&laquo; Back to Event profile</a>
+                </div>
+                <div class="part-one-form">
+                    <h3>Event Information</h3>
+                    <div>
+                        <% if(role == "admin"){%>
+
+                            <strong>Event Organizer: </strong>  <input type="text" name="eventOrganizer" placeholder="" value="<%= eventData.organizer %>" readonly required>
+
+                        <%}else{%>
+
+                            <strong>Event Organizer: </strong>  <input type="text" name="eventOrganizer" placeholder="" value="<%= eventData.organizer %>" readonly required>
+
+                        <%} %>
+                        <label for="Difficulty">Difficulty: 
+                        <select class="" name="difficulty" style="background-color: #e4ebf1fb; padding: 1em; border-radius: 4px;" required>
+                            <option value="" disabled>Select</option>
+                            <option value="Easy">Easy</option>                                
+                            <option value="Moderate">Moderate</option>                                
+                            <option value="Moderate-Difficult">Moderate-Difficult</option>                                
+                            <option value="Difficult">Difficult</option>                                
+
+                        </select>
+                    </label>
+                    </div>
+                  
+                    <div>
+                        <input type="text" name="eventName" placeholder="Event Name" value="<%=eventData.eventName%>" required>
+                        <input type="number" name="eventPrice" placeholder="Event Price" value="<%=eventData.eventPrice%>"required>
+                        <input type="number" name="groupSize" placeholder="Group Size" value="<%=eventData.groupSize%>">
+
+                    </div>
+                    <div>
+                        <input type="number" name="distance" placeholder="Distance From addis ababa" value="<%=eventData.distance%>">
+                        <input type="date" name="startingDate" placeholder="" value="<%=eventData.startingDate%>" required>
+                        <input type="date" name="lastDate" placeholder="Last Name" value="<%=eventData.lastDate%>" required>
+                    </div>
+                    <div>
+                        <input type="number" name="distanceCover" placeholder="Distance Cover" value="<%=eventData.distanceCover%>">
+                        <input type="text" name="pickupPoint" placeholder="Pickup Point" value="<%=eventData.pickupPoint%>" required>
+                        <label for="departureTime">Departure Time
+                            <input id="departureTime" type="time" name="departureTime" placeholder="Departure Time" style="width: 14em;" required>
+                        </label>
+                    </div>
+                    <label for="operatedIn">Operated In</label>
+                    <div class="language_option">
+                        <div class="lang_checkbox">
+                            <input type="checkbox" name="language1" id="language1" value="<%=eventData.language1%>">
+                            <label for="language1">English</label>
+                        </div>
+                        <div> 
+                            <input type="checkbox" name="language2" id="language2" value="<%=eventData.language2%>">
+                            <label for="language2">Amharic</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="language3" id="language3" value="<%=eventData.language3%>">
+                            <label for="language3">Afan Oromo</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="language4" id="language4" value="<%=eventData.language4%>">
+                            <label for="language4">Tgrigna</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="google-map">
+                    <input type="text" name="mapLink" placeholder="Google map" value="<%=eventData.mapLink%>">
+                </div>
+
+                <div class="event-hightlight-inputs">
+                    <h3>Highlight</h3>
+                    <div>
+                        <input type="text" name="h1" placeholder="highlight 1" value="<%=eventData.h1%>">
+                    </div>
+                    <div>
+                        <input type="text" name="h2" placeholder="highlight 2" value="<%=eventData.h2%>">
+                    </div>
+                    <div>
+                        <input type="text" name="h3" placeholder="highlight 3" value="<%=eventData.h3%>">
+                    </div>
+                    <div>
+                        <input type="text" name="h4" placeholder="highlight 4" value="<%=eventData.h3%>">
+                    </div>
+                    <div>
+                        <input type="text" name="h5" placeholder="highlight 5" value="<%=eventData.h4%>">
+                    </div>
+                </div>
+                <div class="part-two-form">
+                    <h3>Event Itinerary</h3>
+                    <label for="Itinerary" class="description">
+                        
+                        <textarea name="itinerary" id="Itinerary" rows="15" placeholder="Itinerary" ><%=eventData.itinerary%></textarea>
+                        
+                    </label>
+                </div>
+
+                <div class="part-three-form">
+                    <h3>what is included</h3>           
+                    <div class="services_checkbox">
+                        <div>
+                            <input type="checkbox" name="isAccommodation" id="accommodation" value="<%=eventData.isAccommodation%>">
+                            <label for="accommodation">Accommodation</label>
+                            <label for="accommodation" class="description">
+                                <textarea name="accommodationDesc" id="accommodation" rows="4" placeholder="Description"><%=eventData.accommodationDesc%></textarea>
+                            </label>  
+                        </div>
+                        <div>
+                            <input type="checkbox" name="isGuide" id="guide" value="<%=eventData.isGuide%>">
+                            <label for="guide">Guide</label>
+                            <label for="guide" class="description">
+                                <textarea name="guideDes" id="guide" rows="4" placeholder="Description"><%=eventData.guideDes%></textarea>
+                            </label>  
+                        </div>
+                        <div>
+                            <input type="checkbox" name="isMeals" id="meals" value="<%=eventData.isMeals%>">
+                            <label for="meals">Meals</label>
+                            <label for="meals" class="description">
+                                <textarea name="mealsDesc" id="meals" rows="4" placeholder="Description"><%=eventData.mealsDesc%></textarea>
+                            </label>  
+                        </div>
+                        <div>
+                            <input type="checkbox" name="isTransport" id="transport" value="<%=eventData.isTransport%>">
+                            <label for="transport">Transport</label>
+                            <label for="transport" class="description">
+                                <textarea name="transportDesc" id="transport" rows="4" placeholder="Description"><%=eventData.transportDesc%></textarea>
+                            </label>  
+                        </div>
+                        <div>
+                            <input type="checkbox" name="isInsurance" id="insurance" value="<%=eventData.isInsurance%>">
+                            <label for="insurance">Insurance</label>
+                            <label for="insurance" class="description">
+                                <textarea name="insuranceDesc" id="insurance" rows="4" placeholder="Description"><%=eventData.insuranceDesc%></textarea>
+                            </label>  
+                        </div>
+                        <div>
+                            <input type="checkbox" name="isAdditionalServices" id="additionalServices" value="<%=eventData.isAdditionalServices%>">
+                            <label for="additionalServices">Additional Services</label>
+                            <label for="additionalServices" class="description">
+                                <textarea name="additionalServicesDesc" id="additionalServices" rows="4" placeholder="Description"><%=eventData.additionalServicesDesc%></textarea>
+                            </label>  
+                        </div>
+            
+                                              
+                    </div>
+                </div>
+
+                <label for="fileUpload" class="flie-upload-label">
+                    <h3>Thumbnail Upload</h3>
+                    <!-- <div>
+                        <i class="fa fa-file-upload"></i>
+                    </div> -->
+                    <input class="file-upload" type="file" id="fileUpload" name="thumbnail" single required>
+                    <!-- <p><strong>Click here to Choose a file</strong> </p> -->
+                </label>
+                
+                <label for="fileUpload" class="flie-upload-label">
+                    <h3>Image Upload</h3>
+                    <!-- <div>
+                        <i class="fa fa-file-upload"></i>
+                    </div> -->
+                    <input class="file-upload" type="file" id="fileUpload" name="images" multiple>
+
+                    <!-- <p><strong>Click here to Choose a file</strong></p> -->
+                </label>
+
+                <div class="form-btn">
+                    <button type="submit" class="btn submit-btn">Submit</button>
+                    <button type="submit" class="btn cancel-btn">cancel</button>
+                </div>
+            </form>
+        </div>
+     </div>
+ </div>
+ <!-- *********************admin body end**************** -->
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="/js/admin.js"></script>
+</body>
+</html>

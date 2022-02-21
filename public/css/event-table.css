@@ -1,0 +1,25 @@
+.all-event-container{
+    box-shadow: 0em 0em 3em rgba(0, 0, 0, 0.137);
+
+    margin: 50px;
+}
+.action-btn{
+    display: flex;
+}
+.update-btn, .delete-btn, .organizer_profile_btn{
+    padding: 0 10px;
+}
+.update-btn i, .delete-btn i, .organizer_profile_btn i{
+    font-size: 1.1em;
+}
+.organizer_profile_btn i{
+    color: rgb(102, 219, 48);
+    font-size: 1.2em;
+}
+.update-btn i{
+    color: rgb(48, 58, 119);
+}
+
+.delete-btn i{
+    color: rgb(243, 21, 21);
+}

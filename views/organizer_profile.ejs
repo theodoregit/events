@@ -1,0 +1,105 @@
+<%- include('includes/header-admin') %>
+<main>
+    <div class="admin-body">
+        <%- include('includes/flash') %>
+
+        <div class="organizer_profile_container">
+            <div class="dashbord-header">
+                <h3 style="text-align: center;"><%= title  %></h3>
+                <button class="btn download-report-btn">Download Report</button>
+            </div>
+
+            <div class="organizer_image_and_name">
+                <img src="/uploads/images/<%= organizerDetail.image %>" width="70" height="70" alt="image">
+                <h1 style="display: grid; place-content: center; margin-left: 0.5em;"><%= organizerDetail.FullName %></h1>
+            </div>
+            
+            <div class="organizer_basic_info">
+                <div>
+                    
+                    <p><strong>Organizer Name: </strong><%= organizerDetail.FullName %></p>
+                </div>
+                
+                <div>
+                    
+                    <p><strong>Email: </strong><%= organizerDetail.Email %></p>
+                </div>
+                <div>
+                
+                    <p><strong>Phone Number: </strong>Phone Number <%= organizerDetail.PhoneNumber %></p>
+                </div>
+                <div>
+                
+                    <p><strong>Alternate Phone Number: </strong><%= organizerDetail.altPhoneNumber %></p>
+                </div>
+                <div>
+                   
+                    <p> <strong>Address: </strong> <%= organizerDetail.address %></p>
+                </div>
+                <div>
+                    
+                    <p><strong>Person In Charge Name: </strong> <%= organizerDetail.PICName %></p>
+                </div>
+                <div>
+                    
+                    <p><strong>Person In Charge Email: </strong> <%= organizerDetail.PICEmail %></p>
+                </div>
+                <div>
+                    
+                    <p><strong>Person In Charge Phone Number: </strong> <%= organizerDetail.PICPhoneNumber %></p>
+                </div>
+         
+            </div>
+        
+            <div class="organizer_statstics">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Total Event</th>
+                            <th>Active Event</th>
+                            <th>Total Income</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="chart-container" style="position: relative;  width:70vw">
+                    <canvas id="myChart" >
+                        
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+        let massPopChart = new Chart(myChart, {
+            type: 'bar', //bar , horizontalBar , pie.line.doughnut, radar, polarArea
+            data:{
+                labels:['2015', '2016', '2017', '2018', '2019', '2020'],
+                datasets:[{
+                    label:'Income',
+                    data:[10000, 5000, 8500, 6400, 1000, 7000 ],
+                      backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                    ],
+                }]
+            },
+        });
+    </script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>

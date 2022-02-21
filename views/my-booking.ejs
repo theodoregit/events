@@ -1,0 +1,61 @@
+
+ <%- include('includes/header-user') %>
+
+ <div class="my_profile_container">
+    <div class="">
+        <h1>My Acount</h1>
+        <ul>
+            <li><a href="/my-account" id="">My details</a></li>
+            <li><a href="/my-booking" id="active">My booking</a></li>
+            <li><a href="">Account settings</a></li>
+        </ul>
+    </div>
+    <div class="my_booking_status_table">
+        <table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Image</td>
+                    <td>Event Name</td>
+                    <td>Slots</td>
+                    <td>Price</td>
+                    <!-- <td>Rating</td> -->
+                    <td>Payment Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% var count = 1
+                bookingList.forEach((booking)=>{  %>
+                    <tr>
+                        <td><%= count %></td>
+                        <td><a href="/event/<%= booking.id%>"><img src="/uploads/images/<%= booking.thumbnail %>" alt="" width="80" height="60"></a></td>
+                        <td><%= booking.eventName %></td>
+                        <td><%= booking.quantity %></td>
+                        <td><%= booking.eventPrice %></td>
+                        <td>
+                            <%if(booking.payment == "pending"){%>
+                                <p class="text-gradient">
+                                    <strong style="color:black; background-color: rgb(245, 248, 48); padding: 10px; border-radius: 4px;"><%= booking.payment%></strong>
+                                    <span style="color:rgb(253, 253, 253); background-color: rgb(82, 183, 250); padding: 10px; border-radius: 4px; cursor: pointer;">Pay now</span>
+                                </p>
+
+                            <%}else if(booking.payment == "done"){%>
+                                <p class="text-gradient"><strong style="color:black; background-color: rgb(48, 248, 81); padding: 10px; border-radius: 4px;"><%= booking.payment%></strong></p>
+                            <% } %>   
+                        </td>
+                        
+                    </tr>
+                <% count++ }) %>
+               
+          
+            </tbody>
+        </table>
+     </div>
+ </div>
+ <%- include('includes/footer') %>
+</body>
+
+</html>
+
+
+

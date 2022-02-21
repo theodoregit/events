@@ -1,0 +1,30 @@
+
+
+.organizer_profile_container{
+    margin: 2em;
+    box-shadow: 2px 2px 20px rgb(0 0 0 / 20%);
+    padding: 2em;
+    border-radius: 10px;
+}
+.organizer_image_and_name{
+    display: flex;
+}
+.organizer_basic_info{
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.organizer_basic_info p{
+    padding: 1em;
+}
+.organizer_profile_container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 20px rgb(0 0 0 / 20%);
+    border: solid 4px rgb(244, 255, 215);
+}
+.organizer_statstics table{
+    margin-bottom: 4em;
+}

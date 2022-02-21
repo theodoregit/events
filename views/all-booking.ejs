@@ -1,0 +1,82 @@
+
+ <%- include('includes/header-admin') %>
+
+
+ <div class="admin-body">
+   
+<!-- flash here -->
+     <div class="all-event-container">
+         <%- include('includes/flash') %>
+         <div class="table-1">
+             <table >
+                 <thead>
+                     <tr>
+                         <th>S.No</th>
+                         <th>Profile</th>
+                         <th>User Name</th>
+                         <th>Event Name</th>
+                         <% if(role == "admin"){%>
+                             <th>Organizer</th>
+                         <%} %>
+                         <th>Price</th>
+                         <th>Booked Date</th>
+                         <th>Payment</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <% var count = 1
+                     bookingList.forEach((booking)=>{  %>
+                        
+                         <tr>
+                             <td><%= count %></td>
+                             <td>
+                                 <a id="profileImage" href="#" class="user-profile">
+                                <img src="/image/engida" onerror="this.style.display='none' " width="45" height="45" alt="">
+                                </a>
+                            </td>
+                             <td><%=booking.FullName%><a href=""></td>
+                             <td><%=booking.eventName%><a href=""></td>
+                             <% if(role == "admin"){%>
+                                 <td><%=booking.organizer%></td>
+                             <%} %>                                
+                             <td><%=booking.eventPrice%></td>
+                             <td><%=booking.createdDate%></td>
+                             <td class="action-btn">
+                                <%if(booking.payment == "pending"){%>
+                                         <p class="text-gradient"><strong style="color:black; background-color: rgb(245, 248, 48); padding: 10px; border-radius: 4px;"><%= booking.payment%></strong></p>
+                                    <%}
+                                    else if(booking.payment == "done"){%>
+                                        <p class="text-gradient"><strong style="color:black; background-color: rgb(48, 248, 81); padding: 10px; border-radius: 4px;"><%= booking.payment%></strong></p>
+                                <% }%>
+                               
+                             </td>
+                         </tr>
+                         <script>
+            
+                            const extractFirstLetters = function(name) {
+                                let firstName = name.split(' ')[0];
+                               
+                                let firstLetters = firstName[0];
+                                firstLetters = firstLetters.toUpperCase()
+                                return firstLetters
+                            }
+                    
+                            let output = extractFirstLetters("<%= booking.fullname %>")
+                            
+                            document.getElementById('profileImage').innerHTML = output;
+                        </script>
+                     <% count++ }) %>
+                         
+ 
+                 </tbody>
+                
+             </table>
+         </div>
+     </div>
+ </div>
+ 
+ <script src="/js/admin.js"></script>
+</body>
+</html>
+
+

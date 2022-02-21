@@ -1,0 +1,75 @@
+
+
+<%- include('includes/header-user') %>
+
+
+    <div class="booking-form">
+
+        <!-- flash message here -->
+
+        <form action="/payment-options" method="post">
+            <div class="booing-detail-container">
+                <div class="booing-detail">
+                    <div><h3>Booking Details</h3></div>
+
+                    <div>
+                        <p><strong>Name: </strong><%=fullname%></p>
+                 
+                    </div> 
+                    
+                    <div>
+                        <p><strong>Phone Number: </strong><%=phoneNumber%></p>
+                   
+                    </div>
+                    <div>
+                        <p><strong>Email: </strong><%=email%></p>
+                    
+                    </div>
+                    <hr>
+                    <div>
+                        <p><strong>Event Name:</strong><%=eventDetail.eventName%></p>
+                    </div>
+
+                    <div>
+                        <p><strong>Event Organizer: </strong><%=eventDetail.organizer%></p>
+                    </div>
+            
+                    <div>
+                        <p><strong>Start Date: </strong><%=eventDetail.startingDate%></p>
+                    
+                    </div>
+                
+                    <div>
+                        <p><strong>Last Name: </strong><%=eventDetail.lastDate%></p>
+            
+                    </div>
+                    
+                </div>
+                <div class="payment-container">
+                    <div><h3>Payment Details</h3></div>
+
+                    <div class="payment">
+                        <p><strong>Slots: </strong><span><input type="number" name="quantity" value="<%= quantity%>" style="background: none; font-weight: 600;"></span></input></p>
+                        <p><strong>Event Price: </strong><span><%=eventDetail.eventPrice%></span></p>
+                        <p><strong>Discount: </strong><span><%=eventDetail.discount%></span></p>
+                        <p><strong>Total: </strong><span></span></p>
+                    </div>
+                    <input type="text" name="id" id="" value="<%= eventDetail.id%>" hidden>
+                    <div class="payment-btn">
+                        <button type="submit" class="btn submit-btn" style="padding: 0.8em;">Pay Now</button>
+                        <a href="/event/<%=eventDetail.id%>" type="reset" class="btn cancel-btn">Back</a>
+                    </div>
+                </div>
+            </div>
+          
+            
+
+        </form>
+        
+    </div>
+
+    <%- include('includes/footer') %>
+
+</body>
+
+</html>

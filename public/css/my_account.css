@@ -1,0 +1,69 @@
+
+.my_profile_container{
+    display: flex;
+    padding: 5em;
+background-color: #f4f6f8;
+}
+
+.side_nav_settings{
+ flex: 1;
+}
+.side_nav_settings h1{
+    padding-bottom: 1em ;
+}
+
+.side_nav_settings a{
+    color: #383b3dd5;
+    padding: 0.5em;
+}
+.side_nav_settings a:hover{
+    color: #1376d1;
+}
+#active{
+    background-color: #e2ecfc;
+    color: #1376d1;
+}
+.my_account_info{
+    /* padding: 2em; */
+    flex: 5;
+}
+.my_profile_container .profilr_picture{
+    display: flex;
+}
+.my_profile_container form{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(255, 255, 255);
+    padding: 1em;
+
+}
+.my_profile_container label{
+    margin: 0 1em ;
+}
+.my_profile_container input{
+    width: 50%;
+    padding: 1em;
+    margin: 1em;
+}
+button.save-btn{
+    width: 20%;
+    background: rgb(0, 153, 255);
+}
+.my_booking_status_table{
+    padding: 2em;
+    margin: 2em;
+    border-radius: 7px;
+    background-color: #fcfcfc;
+    width: 100%;
+}
+@media (max-width: 768px){
+    .my_profile_container{
+        flex-direction: column;
+    }
+    .my_profile_container{
+        padding: 1em;
+    }
+    .my_profile_container input{
+        width: 90%;
+    }
+}

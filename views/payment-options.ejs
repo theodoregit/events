@@ -1,0 +1,35 @@
+<%- include('includes/header-user') %>
+
+    <div class="payment_options_container">
+        <div class="">
+            <h2>Payment Options</h2>
+        </div>
+        <form action="/book-event" method="post" class="payment_options_form">
+            <h4><%=eventDetail.eventName%></h4>
+            <h3><%=eventDetail.eventPrice%> <span style="font-weight: 200;">Birr for </span>  <input type="text" name="quantity" value="<%= quantity%>" style="background: none;margin: 0; padding: 0; width: 1em; font-weight: 600;"></input> <span style="font-weight: 200;"> spots </span></h3>
+            <div class="payment_options">
+
+                <input type="radio" name="formOfPayment" value="Pay with Telebirr" id="payment_option_one">
+                <label for="payment_option_one">Pay with Telebirr</label>
+
+                <input type="radio" name="formOfPayment" value="Pay with CBE birr" id="payment_options_two">
+                <label for="payment_options_two">Pay with CBE birr</label>
+
+                <input type="radio" name="formOfPayment" value="Pay with Amole" id="payment_options_tree">
+                <label for="payment_options_tree">Pay with Amole</label>
+
+                <input type="radio" name="formOfPayment" value="Bank Transfer" id="payment_options_four">
+                <label for="payment_options_four">Bank Transfer</label>
+
+            </div> 
+            <input type="text" name="id" id="" value="<%= eventDetail.id%>" hidden>
+            <div class="payment_option_btn_container">
+                <button type="submit" class="btn payment_option_btn">Continue</button> 
+            </div>
+        </form>
+       
+    </div>
+    <%- include('includes/footer') %>
+
+</body>
+</html>
